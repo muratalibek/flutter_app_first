@@ -11,8 +11,12 @@ import 'ui/Home.dart';
 //   home: ScaffoldExample(),
 // ));
 
+// void main() => runApp(const MaterialApp(
+//   home: BizCard(),
+// ));
+
 void main() => runApp(const MaterialApp(
-  home: BizCard(),
+  home: Wisdom(),
 ));
 
 

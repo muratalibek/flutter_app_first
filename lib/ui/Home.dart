@@ -1,10 +1,68 @@
 import 'package:flutter/material.dart';
 
-class BizCard extends StatelessWidget {
-  const BizCard({super.key});
+class Wisdom extends StatefulWidget {//
+  const Wisdom({super.key});
+
+  @override
+  State<Wisdom> createState() => _WisdomState();
+}
+
+class _WisdomState extends State<Wisdom> {
+  int _index = 0;
+  List quotes = [
+    "Доброе утро, Мурат!",
+    "Добрый день, Мурат!",
+    "Добрый вечер, Мурат!",
+    "Доброй ночи, Мурат!"
+  ];
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 350,
+              height: 200,
+              margin: const EdgeInsets.all(30.0),
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                borderRadius: BorderRadius.circular(14.5)
+              ),
+              child: Center(child: Text(quotes[_index % quotes.length],
+              style: TextStyle(
+                color: Colors.grey.shade700,
+                fontStyle: FontStyle.italic,
+                fontSize: 16.5,
+              ),))),
+          const Divider(thickness: 1.3),
+          Padding(
+            padding: const EdgeInsets.only(top: 18.0),
+            child: ElevatedButton.icon(
+                onPressed: _showQuote,
+                icon: const Icon(Icons.wb_sunny),
+                label: const Text("Inspire me!",
+                    style: TextStyle(fontSize: 18.8, color: Colors.white))),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showQuote() {
+    //increment our index/counter by one
+    setState(() {
+      _index++;
+    });
+  }
+}
+//---------------------------------------StateLESS Widgets-------------------
+class BizCard extends StatelessWidget {//
+  const BizCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {//State<Wisdom> createState() => _WisdomState();
     return Scaffold(
       appBar: AppBar(
         title: const Text("BizCard"),
@@ -14,16 +72,14 @@ class BizCard extends StatelessWidget {
         alignment: Alignment.center,
         child: Stack(
           alignment: Alignment.topCenter,
-          children: [
-           _getCard(),
-            _getAvatar()
-          ],
+          children: [_getCard(), _getAvatar()],
         ),
       ),
     );
   }
 
-  Container _getCard() {// Container во Flutter - это многофункциональный виджет,
+  Container _getCard() {
+    // Container во Flutter - это многофункциональный виджет,
     // который используется для создания прямоугольных контейнеров с различными
     // свойствами стилизации и компоновки. Он может содержать текст, изображения,
     // другие виджеты или даже служить просто для стилизации фона без содержимого.
@@ -33,27 +89,27 @@ class BizCard extends StatelessWidget {
       height: 200,
       margin: const EdgeInsets.all(50.0),
       decoration: BoxDecoration(
-        color: Colors.pinkAccent,
-        borderRadius: BorderRadius.circular(14.5)
+          color: Colors.pinkAccent, borderRadius: BorderRadius.circular(14.5)),
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Murat Alibek",
+            style: TextStyle(
+                fontSize: 20.9,
+                color: Colors.white,
+                fontWeight: FontWeight.w500),
+          ),
+          Text("buildapps.com"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.person_outline),
+              Text("T: @buildapps"),
+            ],
+          )
+        ],
       ),
-    child: const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("Murat Alibek", style: TextStyle(
-            fontSize: 20.9,
-            color: Colors.white,
-            fontWeight: FontWeight.w500),
-        ),
-        Text("buildapps.com"),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.person_outline),
-            Text("T: @buildapps"),
-          ],
-        )
-      ],
-    ),
     );
   }
 
@@ -62,14 +118,12 @@ class BizCard extends StatelessWidget {
       width: 100,
       height: 100,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: const BorderRadius.all(Radius.circular(50.0)),
-        border: Border.all(color: Colors.redAccent, width: 1.2),
-        image: const DecorationImage(image: NetworkImage(
-          "https://picsum.photos/300/300"
-        ),
-        fit: BoxFit.cover)
-      ),
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(50.0)),
+          border: Border.all(color: Colors.redAccent, width: 1.2),
+          image: const DecorationImage(
+              image: NetworkImage("https://picsum.photos/300/300"),
+              fit: BoxFit.cover)),
     );
   }
 }
