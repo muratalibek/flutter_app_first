@@ -15,8 +15,14 @@ import 'ui/Home.dart';
 //   home: BizCard(),
 // ));
 
+// void main() => runApp(const MaterialApp(
+//   home: Wisdom(),
+// ));
+
 void main() => runApp(const MaterialApp(
-  home: Wisdom(),
+  home: BillSplitter(),
 ));
+
+
 
 

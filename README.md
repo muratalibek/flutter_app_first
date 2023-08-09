@@ -26,6 +26,14 @@ This project is a starting point for a Flutter application.
 
 ### **Chapter 12:** :white_check_mark:
 ### **Chapter 13:** :white_check_mark:
+### **Chapter 14:** :white_check_mark:
+### **Chapter 15:** :white_check_mark:
+
+> Коротко о chapter 15. Сделали калькулятор чаевых, где вводится сумма чека 
+и добавляется процент чаевых. В верхнем контейнере общая сумма оплаты разделенная на каждого человека.
+В нижнем контейнере вводится сумма в долларах. Split - это количество людей, на число которых делится 
+общая сумма. Tip - сумма чаевых в процентном соотношении с суммой чека. Процент высчитывается с помощью 
+нижней разделительной полосы.
 
        
 A few resources to get you started if this is your first Flutter project:
